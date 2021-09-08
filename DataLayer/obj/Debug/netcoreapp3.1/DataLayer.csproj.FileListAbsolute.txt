@@ -1,0 +1,11 @@
+C:\work\Test repos\EntityFramework\StudentAPI\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.deps.json
+C:\work\Test repos\EntityFramework\StudentAPI\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.runtimeconfig.json
+C:\work\Test repos\EntityFramework\StudentAPI\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.runtimeconfig.dev.json
+C:\work\Test repos\EntityFramework\StudentAPI\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.dll
+C:\work\Test repos\EntityFramework\StudentAPI\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.pdb
+C:\work\Test repos\EntityFramework\StudentAPI\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfoInputs.cache
+C:\work\Test repos\EntityFramework\StudentAPI\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfo.cs
+C:\work\Test repos\EntityFramework\StudentAPI\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.CoreCompileInputs.cache
+C:\work\Test repos\EntityFramework\StudentAPI\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.dll
+C:\work\Test repos\EntityFramework\StudentAPI\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.pdb
+C:\work\Test repos\EntityFramework\StudentAPI\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.genruntimeconfig.cache

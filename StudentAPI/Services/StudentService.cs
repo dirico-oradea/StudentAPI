@@ -1,46 +1,62 @@
-﻿using StudentAPI.Models;
+﻿using DataLayer;
+using DataLayer.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace StudentAPI.Services
 {
     public class StudentService
     {
-        private static List<Student> MyStudents = new List<Student>()
+        public List<StudentDto> GetAllStudents()
         {
-            new Student() { Id = 1, Name = "John Doe", Profile = "IT" },
-            new Student() { Id = 2, Name = "Jane Doe", Profile = "IT" },
-            new Student() { Id = 3, Name = "John Smith", Profile = "Physics" },
-        };
+            using var db = new SqlContext();
+            var result = db.Students
+                .Where(x => x.Id > 0)
+                .ToList();
 
-        public List<Student> GetAllStudents()
-        {
-            return MyStudents;
+            return result;
         }
 
-        public Student GetStudentById(int studentId)
+        public StudentDto GetStudentById(int studentId)
         {
-            return MyStudents.First(s => s.Id == studentId);
+            using var db = new SqlContext();
+            var result = db.Students
+                .FirstOrDefault(x => x.Id == studentId);
+
+            return result;
         }
 
-        public List<Student> GetStudentsByProfile(string profile)
+        public List<StudentDto> GetStudentsByProfile(string profile)
         {
-            return MyStudents.Where(s => s.Profile == profile).ToList();
+            using var db = new SqlContext();
+            var result = db.Students
+                .Where(x => x.Profile != null && x.Profile.ToLower() == profile.ToLower())
+                .ToList();
+
+            return result;
         }
 
-        public Student CreateStudent(Student student)
+        public StudentDto CreateStudent(StudentDto student)
         {
-            MyStudents.Add(student);
+            using var db = new SqlContext();
+            db.Students.Add(student);
+            db.SaveChanges();
+
             return student;
         }
 
         public void DeleteStudentById(int studentId)
         {
-            if (MyStudents.Any(s => s.Id == studentId))
+            using var db = new SqlContext();
+            var student = db.Students
+                    .FirstOrDefault(x => x.Id == studentId);
+
+            if (student != null)
             {
-                MyStudents = MyStudents.Where(s => s.Id != studentId).ToList();
+                db.Students.Remove(student);
+                db.SaveChanges();
             }
             else
             {
@@ -48,14 +64,24 @@ namespace StudentAPI.Services
             }
         }
 
-        public Student UpdateStudentById(int studentId, Student changedStudent)
+        public StudentDto UpdateStudentById(int studentId, StudentDto changedStudent)
         {
-            Student studentToUpdate = MyStudents.First(s => s.Id == studentId);
+            using var db = new SqlContext();
+            var student = db.Students
+                    .FirstOrDefault(x => x.Id == studentId);
 
-            studentToUpdate.Name = changedStudent.Name;
-            studentToUpdate.Profile = changedStudent.Profile;
+            if (student != null)
+            {
+                student.Name = changedStudent.Name;
+                student.Profile = changedStudent.Profile;
+                db.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("The student with the specified ID was not found.");
+            }
 
-            return studentToUpdate;
+            return student;
         }
     }
 }

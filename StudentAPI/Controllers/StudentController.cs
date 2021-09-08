@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using DataLayer.Models;
+
 using Microsoft.AspNetCore.Mvc;
-using StudentAPI.Models;
+
 using StudentAPI.Services;
+
+using System.Collections.Generic;
 
 namespace StudentAPI.Controllers
 {
@@ -13,26 +12,26 @@ namespace StudentAPI.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
-        private StudentService studentService = new StudentService();
+        private readonly StudentService studentService = new StudentService();
 
         [HttpGet]
         [Route("all")]
-        public ActionResult<List<Student>> GetAllStudents([FromHeader]string password)
+        public ActionResult<List<StudentDto>> GetAllStudents([FromHeader] string password)
         {
-            if (password != "rightpassword")
-            {
-                return Unauthorized();
-            }
-            return this.studentService.GetAllStudents();
+            //if (password != "rightpassword")
+            //{
+            //    return Unauthorized();
+            //}
+            return studentService.GetAllStudents();
         }
 
         [HttpGet]
         [Route("id/{studentId}")]
-        public ActionResult<Student> GetStudentById([FromRoute]int studentId)
+        public ActionResult<StudentDto> GetStudentById([FromRoute] int studentId)
         {
             try
             {
-                return Ok(this.studentService.GetStudentById(studentId));
+                return Ok(studentService.GetStudentById(studentId));
             }
             catch
             {
@@ -42,25 +41,25 @@ namespace StudentAPI.Controllers
 
         [HttpGet]
         [Route("find")]
-        public List<Student> GetStudentsByProfile([FromQuery]string profile)
+        public List<StudentDto> GetStudentsByProfile([FromQuery] string profile)
         {
-            return this.studentService.GetStudentsByProfile(profile);
+            return studentService.GetStudentsByProfile(profile);
         }
 
         [HttpPost]
         [Route("create")]
-        public ActionResult<Student> CreateStudent([FromBody]Student student)
+        public ActionResult<StudentDto> CreateStudent([FromBody] StudentDto student)
         {
-            return Created("id/" + student.Id, this.studentService.CreateStudent(student));
+            return Created("id/" + student.Id, studentService.CreateStudent(student));
         }
 
         [HttpDelete]
         [Route("delete/{studentId}")]
-        public ActionResult DeleteStudentById([FromRoute]int studentId)
+        public ActionResult DeleteStudentById([FromRoute] int studentId)
         {
             try
             {
-                this.studentService.DeleteStudentById(studentId);
+                studentService.DeleteStudentById(studentId);
 
                 return Ok();
             }
@@ -72,11 +71,11 @@ namespace StudentAPI.Controllers
 
         [HttpPut]
         [Route("update/{studentId}")]
-        public ActionResult<Student> UpdateStudentById([FromRoute]int studentId, [FromBody]Student changedStudent)
+        public ActionResult<StudentDto> UpdateStudentById([FromRoute] int studentId, [FromBody] StudentDto changedStudent)
         {
             try
             {
-                return Ok(this.studentService.UpdateStudentById(studentId, changedStudent));
+                return Ok(studentService.UpdateStudentById(studentId, changedStudent));
             }
             catch
             {

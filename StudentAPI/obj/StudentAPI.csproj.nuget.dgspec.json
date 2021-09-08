@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\intership\\StudentAPI\\StudentAPI\\StudentAPI\\StudentAPI.csproj": {}
+    "C:\\work\\Test repos\\EntityFramework\\StudentAPI\\StudentAPI\\StudentAPI.csproj": {}
   },
   "projects": {
-    "D:\\intership\\StudentAPI\\StudentAPI\\StudentAPI\\StudentAPI.csproj": {
+    "C:\\work\\Test repos\\EntityFramework\\StudentAPI\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\intership\\StudentAPI\\StudentAPI\\StudentAPI\\StudentAPI.csproj",
-        "projectName": "StudentAPI",
-        "projectPath": "D:\\intership\\StudentAPI\\StudentAPI\\StudentAPI\\StudentAPI.csproj",
-        "packagesPath": "C:\\Users\\ilyen\\.nuget\\packages\\",
-        "outputPath": "D:\\intership\\StudentAPI\\StudentAPI\\StudentAPI\\obj\\",
+        "projectUniqueName": "C:\\work\\Test repos\\EntityFramework\\StudentAPI\\DataLayer\\DataLayer.csproj",
+        "projectName": "DataLayer",
+        "projectPath": "C:\\work\\Test repos\\EntityFramework\\StudentAPI\\DataLayer\\DataLayer.csproj",
+        "packagesPath": "C:\\Users\\sando\\.nuget\\packages\\",
+        "outputPath": "C:\\work\\Test repos\\EntityFramework\\StudentAPI\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ilyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sando\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,81 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\work\\Test repos\\EntityFramework\\StudentAPI\\StudentAPI\\StudentAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\work\\Test repos\\EntityFramework\\StudentAPI\\StudentAPI\\StudentAPI.csproj",
+        "projectName": "StudentAPI",
+        "projectPath": "C:\\work\\Test repos\\EntityFramework\\StudentAPI\\StudentAPI\\StudentAPI.csproj",
+        "packagesPath": "C:\\Users\\sando\\.nuget\\packages\\",
+        "outputPath": "C:\\work\\Test repos\\EntityFramework\\StudentAPI\\StudentAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\sando\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\work\\Test repos\\EntityFramework\\StudentAPI\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\work\\Test repos\\EntityFramework\\StudentAPI\\DataLayer\\DataLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -61,7 +137,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
